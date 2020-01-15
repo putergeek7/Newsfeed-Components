@@ -148,5 +148,20 @@ function createArticles(
 	articleDate.classList.add('date');
 	articleExpBtn.classList.add('expandButton');
 
+	// set text content
+	articleTitle.textContent = title;
+	articleDate.textContent = date;
+	articlePar1.textContent = firstParagraph;
+	articlePar2.textContent = secondParagraph;
+	articlePar3.textContent = thirdParagraph;
+
 	return article;
 }
+
+// attain the parent element to append the data
+const articles = document.querySelector('.articles');
+
+data.forEach(data => {articles.appendChild(createArticles(data.title,
+			data.date, data.firstParagraph, data.secondParagraph,
+			data.thirdParagraph));
+});
