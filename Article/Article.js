@@ -99,12 +99,6 @@ const data = [
     <span class='expandButton'></span>
   </div>
 
-
-
-
-
-
-
   Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
@@ -154,6 +148,12 @@ function createArticles(
 	articlePar1.textContent = firstParagraph;
 	articlePar2.textContent = secondParagraph;
 	articlePar3.textContent = thirdParagraph;
+	articleExpBtn.textContent = 'Click to Expand';
+
+	// expanded button click event
+	articleExpBtn.addEventListener('click', event => {
+		article.classList.toggle('article-open');
+	});
 
 	return article;
 }
@@ -161,7 +161,14 @@ function createArticles(
 // attain the parent element to append the data
 const articles = document.querySelector('.articles');
 
-data.forEach(data => {articles.appendChild(createArticles(data.title,
-			data.date, data.firstParagraph, data.secondParagraph,
-			data.thirdParagraph));
+data.forEach(data => {
+	articles.appendChild(
+		createArticles(
+			data.title,
+			data.date,
+			data.firstParagraph,
+			data.secondParagraph,
+			data.thirdParagraph
+		)
+	);
 });
